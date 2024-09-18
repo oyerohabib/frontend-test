@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
       navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
-      toast.error("Login failed. Please check your credentials.");
+      toast.error(error?.response?.data?.errors[0]?.detail);
       throw error;
     }
   };

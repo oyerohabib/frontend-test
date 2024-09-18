@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
   const studentsPerPage = 5;
   const navigate = useNavigate();
 
@@ -54,6 +55,7 @@ const Dashboard = () => {
     formData.append("file", file);
 
     try {
+      setIsUploading(true);
       const response = await api.post(
         "/api/v1/auth/users/upload-users/",
         formData
@@ -70,6 +72,8 @@ const Dashboard = () => {
     } catch (error) {
       console.error("File upload error:", error);
       toast.error(error?.response?.data?.errors[0]?.detail);
+    } finally {
+      setIsUploading(false);
     }
   };
 
@@ -109,9 +113,14 @@ const Dashboard = () => {
           />
           <button
             onClick={handleUpload}
-            className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
+            className={`w-full text-white py-2 rounded-lg transition ${
+              isUploading
+                ? "cursor-not-allowed bg-gray-500"
+                : "bg-green-500 hover:bg-green-600"
+            }`}
+            disabled={isUploading}
           >
-            Upload
+            {isUploading ? "Uploading CSV..." : "Upload"}
           </button>
         </div>
       </div>
