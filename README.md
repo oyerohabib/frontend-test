@@ -2,7 +2,7 @@
 
 This is the frontend implementation for the Student Council Election Supplementary System, built using React and Vite. The system allows admins to upload CSV files containing eligible student voters' information and view them in a paginated table.
 
-### Admin Login Credentials
+## Admin Login Credentials
 
 To access the admin dashboard, use the following credentials:
 
@@ -23,7 +23,7 @@ These credentials allow you to log into the app and manage the student data uplo
   - [Usage](#usage)
   - [API Endpoints](#api-endpoints)
   - [CSV File Format](#csv-file-format)
-    - [Guidelines:](#guidelines)
+    - [Guidelines](#guidelines)
   - [Unique Fields](#unique-fields)
   - [Features](#features)
   - [Technologies](#technologies)
@@ -94,11 +94,11 @@ The Student Council Election Supplementary System provides an admin interface wh
 
 When uploading students' data via CSV, the file should contain the following headers and data columns:
 
-| Phone Number | Email                    | Department Code | Last Name | Matric Number | First Name | Middle Name |
-| ------------ | ------------------------ | --------------- | --------- | ------------- | ---------- | ----------- |
-| 9022421748   | oyerohabib2305@gmail.com | Agriculture     | Habib     | 215013        | Oyero      | sjj8        |
+| Phone Number | Email                      | Department Code | Last Name | Matric Number | First Name | Middle Name |
+| ------------ | -------------------------- | --------------- | --------- | ------------- | ---------- | ----------- |
+| 9022421748   | <oyerohabib2305@gmail.com> | Agriculture     | Habib     | 215013        | Oyero      | sjj8        |
 
-### Guidelines:
+### Guidelines
 
 - The file should be in `.csv` format.
 - Ensure the headers are as specified above, and the columns are populated with the relevant data.
